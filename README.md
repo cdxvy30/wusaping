@@ -46,6 +46,10 @@ Help Options:
   -h, --help       Show this help message
 ```
 
+## Development
+
+For more detailed color, considering using this package instead: [gookit/color](https://github.com/gookit/color)
+
 ## Installation
 
 ### Download executable binaries

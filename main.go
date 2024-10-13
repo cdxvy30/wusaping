@@ -37,11 +37,44 @@ var pingu = []string{
 	` .BBBBBBBBBBBBBBBBYWWWWWWWWWWWWWWWWWWWWWW       .... . . `,
 }
 
+var wusagi = []string{
+	"............................................................",
+	".........................BBBB...BBBB:.......................",
+	"........................BMYYYB.BMYYYB.......................",
+	".......................BMMYYB.BMMYYYB.......................",
+	".......................BMMYYB.BMMYYYB.......................",
+	".......................BMMYYB.BMMYYB........................",
+	".......................BMMYYB.BMMYYB........................",
+	"........................BMYYBBBMYYB.........................",
+	"...................BBBBBYYYYYYYYYYBBBBBBB...................",
+	"................BBBBYYYYYYYYYYYYYYYYYYYYBBBB................",
+	"...............BBBYYYYBBBYYYYYYYYYBBBYYYYYBBBB..............",
+	".............BBBYYYYBBBYYYYYYYYYYYYYYBBYYYYYBBBB............",
+	"............BBBYYYYBBYYYBBBYYYYYYBBBYYYBBYYYYYYBB...........",
+	"...........BBBYYYYYYYYYBWWWBYYYYBWWWBYYYYYYYYYYBB...........",
+	"...........BBYYYYYYYYYYBBWBBYYYYBBWBBYYYYYYYYYYBBB..........",
+	"...........BBYYYYYYYYYYYBWBYYYBYYBWBYYYYYYYYYYYYBB..........",
+	"...........BBYYYYYYMMMYYYYYYBBBBBYYYYYYMMMYYYYYYBB..........",
+	"...........BBYYYYYMMMMMYYYYYBYYYYYYYYYMMMMMYYYYBB...........",
+	"............BBYYYYYMMMYYYYYYYYBYYYYYYYYMMMYYYYYBB...........",
+	".............BBBYYYYYYYYYYYYYYYYYYYYYYYYYYYYYBBB............",
+	"...............BBBYYYYYYYYYYYYYYYYYYYYYYYYYBBBB.............",
+	"................BBYYYYYYYYYYYYYYYYYYYYYYYYBBB...............",
+	"::---:::....::::Y---.....................BBBBB..............",
+	".....:::::::--::*=**.....................+P+*:..............",
+	".....:::---::::.:-:++...................=*++:.:::...........",
+	"....................=*=:.............:-+*++-------:.........",
+	"......................-=+==-:.:.--==+==-=-:..::.:...........",
+	".........................:-+#-#:#=--:.......................",
+	"........................::--++++=--::.......................",
+	"............................................................",
+}
+
 // nolint:gochecknoglobals
 var (
-	appName        = "pingu"
+	appName        = "wusaping"
 	appUsage       = "[OPTIONS] HOST"
-	appDescription = "`ping` command but with pingu"
+	appDescription = "`ping` command but with Wusagi"
 	appVersion     = "???"
 	appRevision    = "???"
 )
@@ -188,16 +221,18 @@ func pingerOnFinish(stats *probing.Statistics) {
 }
 
 func renderASCIIArt(idx int) string {
-	if len(pingu) <= idx {
-		idx %= len(pingu)
+	if len(wusagi) <= idx {
+		idx %= len(wusagi)
 	}
 
-	line := pingu[idx]
+	line := wusagi[idx]
 
 	line = colorize(line, 'R', color.New(color.FgHiRed, color.Bold))
 	line = colorize(line, 'Y', color.New(color.FgHiYellow, color.Bold))
 	line = colorize(line, 'B', color.New(color.FgHiBlack, color.Bold))
 	line = colorize(line, 'W', color.New(color.FgHiWhite, color.Bold))
+	line = colorize(line, 'G', color.New(color.FgHiGreen, color.Bold))
+	line = colorize(line, 'M', color.New(color.FgHiMagenta, color.Bold))
 
 	return line
 }
